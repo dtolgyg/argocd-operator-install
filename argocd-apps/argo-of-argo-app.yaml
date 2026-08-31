@@ -1,19 +1,20 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: namespaced-argocd-manager
-  namespace: argocd
+  name: argo-of-argos
+  namespace: argocd-operator-system
 spec:
   project: default
   source:
-    repoURL: 'https://github.com<fióknév>/<saját-gitops-repo>.git'
+    repoURL: 'https://github.com/dtolgyg/argocd-operator-install.git'
     targetRevision: HEAD
     path: argocd-instances
+    kustomize: {}
   destination:
     server: 'https://kubernetes.default.svc'
     namespace: argocd
   syncPolicy:
     automated:
       enabled: false
-  syncOptions:
-    - CreateNamespace=true
+    syncOptions:
+      - CreateNamespace=true
