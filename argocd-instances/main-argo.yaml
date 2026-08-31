@@ -6,7 +6,3 @@ metadata:
 spec:
   rbac:
     defaultPolicy: 'role:admin'
-  controller:
-    env:
-    - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
-      value: 'argocd-operator-system'
