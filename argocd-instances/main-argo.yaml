@@ -1,0 +1,12 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: main-argocd
+  namespace: argocd-operator-system
+spec:
+  rbac:
+    defaultPolicy: 'role:admin'
+  controller:
+    env:
+    - name: ARGOCD_CLUSTER_CONFIG_NAMESPACES
+      value: 'argocd-operator-system'

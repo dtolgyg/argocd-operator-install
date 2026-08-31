@@ -1,0 +1,19 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: argocd-operator-bootstrap
+  namespace: argocd-operator-system
+spec:
+  project: default
+  source:
+    repoURL: 'https://github.com/dtolgyg/argocd-operator-install.git'
+    targetRevision: HEAD
+    path: argocd-operator-config
+    kustomize: {}
+  destination:
+    server: 'https://kubernetes.default.svc'
+    namespace: argocd-operator-system 
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
