@@ -1,0 +1,21 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: abc-tst
+  namespace: abc-tst-argocd
+spec:
+  description: Project for abc-tst-argocd namespace Applications and ApplicationSets
+
+  sourceNamespaces:
+    - abc-tst-argocd
+
+  destinations:
+    - namespace: 'abc-tst-argocd*'
+      server: https://kubernetes.default.svc
+
+  sourceRepos:
+    - https://github.com/dtolgyg/argocd-operator-install
+
+  clusterResourceWhitelist:
+    - group: ''
+      kind: Namespace

@@ -1,9 +1,6 @@
----
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - namespaces
-  - projects
-  - abc-dev-argo.yaml
-  - abc-tst-argo.yaml
+  - abc-dev-project.yaml
+  - abc-tst-project.yaml
