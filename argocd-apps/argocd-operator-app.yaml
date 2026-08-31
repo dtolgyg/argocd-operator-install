@@ -3,7 +3,6 @@ kind: Application
 metadata:
   name: argocd-operator-bootstrap
   namespace: argocd-operator-system
-  argocd.argoproj.io/sync-options: Prune=confirm
 spec:
   project: default
   source:
@@ -17,5 +16,6 @@ spec:
   syncPolicy:
     syncOptions:
       - ServerSideApply=true
+      - Prune=confirm
     automated:
       enabled: false

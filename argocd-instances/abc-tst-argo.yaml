@@ -1,0 +1,8 @@
+apiVersion: argoproj.io/v1beta1
+kind: ArgoCD
+metadata:
+  name: abc-tst-argocd
+  namespace: abc-tst-argocd
+spec:
+  rbac:
+    defaultPolicy: 'role:readonly'
