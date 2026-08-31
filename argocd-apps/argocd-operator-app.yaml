@@ -3,6 +3,7 @@ kind: Application
 metadata:
   name: argocd-operator-bootstrap
   namespace: argocd-operator-system
+  argocd.argoproj.io/sync-options: Prune=confirm
 spec:
   project: default
   source:
@@ -14,6 +15,7 @@ spec:
     server: 'https://kubernetes.default.svc'
     namespace: argocd-operator-system 
   syncPolicy:
+    syncOptions:
+      - ServerSideApply=true
     automated:
-      prune: true
-      selfHeal: true
+      enabled: false
